@@ -1,9 +1,11 @@
 PHP Class for mklivestatus
 ==========================
 
-mklivestatus is a cool broker for Nagios data, which enables you to query
+mklivestatus [1] is a cool broker for Nagios data, which enables you to query
 Nagios data extremely fast. Downside is that I couldn't find a nice and easy
 way to query if from other boxes. So I wrote these two files.
+
+[1]: http://mathias-kettner.de/checkmk_livestatus.html
 
 index.py
 ========
@@ -14,6 +16,12 @@ them to mklivestatus via the unix-socket. I configured Apache2 like this:
 
 and placed index.py in /usr/lib/cgi-bin/livestatus. Make sure livestatus.py
 (comes with mklivestatus) is loadable.
+
+Column explanation
+==================
+
+If you visit index.py?table=columns, you will see a list of all the tables and
+columns and their descriptions available in mklivestatus.
 
 mklive.inc.php
 ==============
@@ -39,3 +47,5 @@ the username and password for authentication. Use the class like this:
 
 This would query the hosts-table for all hosts with contact_groups containing
 $username and a state other than OK.
+
+
