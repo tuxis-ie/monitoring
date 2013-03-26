@@ -22,7 +22,7 @@ You should include this file in the php where you want to query Nagios from.
 Please note that you need to change the url to query and you might need to fix
 the username and password for authentication. Use the class like this:
 
-`
+```php
  $ls = new livestatus;
  $ls->table_set("hosts");
  $ls->filter_add("contact_groups >= $username");
@@ -35,7 +35,7 @@ the username and password for authentication. Use the class like this:
  }
 
  return $ls->result;
-`
+```
 
 This would query the hosts-table for all hosts with contact_groups containing
 $username and a state other than OK.
